@@ -266,9 +266,18 @@ local function diagnostics(p)
   return groups
 end
 
+local function plugins(p)
+  return {
+    GitSignsAdd = { fg = p.emerald },
+    GitSignsChange = { fg = p.glow },
+    GitSignsDelete = { fg = p.urchin },
+    GitSignsCurrentLineBlame = { fg = p.silt, italic = true },
+  }
+end
+
 function M.get(p)
   local groups = {}
-  for _, section in ipairs({ editor, syntax, treesitter, lsp, diagnostics }) do
+  for _, section in ipairs({ editor, syntax, treesitter, lsp, diagnostics, plugins }) do
     for name, spec in pairs(section(p)) do
       groups[name] = spec
     end
