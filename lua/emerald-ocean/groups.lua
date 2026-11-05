@@ -127,9 +127,148 @@ local function syntax(p)
   }
 end
 
+local function treesitter(p)
+  return {
+    ["@variable"] = { fg = p.foam },
+    ["@variable.builtin"] = { fg = p.verdigris },
+    ["@variable.parameter"] = { fg = p.foam, italic = true },
+    ["@variable.parameter.builtin"] = { fg = p.verdigris, italic = true },
+    ["@variable.member"] = { fg = p.tide },
+    ["@variable.member.definition"] = { fg = p.white },
+    ["@property"] = { fg = p.tide },
+
+    ["@constant"] = { fg = p.coral },
+    ["@constant.builtin"] = { fg = p.coral },
+    ["@constant.macro"] = { fg = p.anemone },
+
+    ["@module"] = { fg = p.tide, italic = true },
+    ["@module.builtin"] = { fg = p.tide, italic = true },
+    ["@label"] = { fg = p.verdigris },
+
+    ["@string"] = { fg = p.white },
+    ["@string.documentation"] = { fg = p.silt, italic = true },
+    ["@string.regexp"] = { fg = p.glow },
+    ["@string.escape"] = { fg = p.glow },
+    ["@string.special"] = { fg = p.glow },
+    ["@string.special.symbol"] = { fg = p.coral },
+    ["@string.special.url"] = { fg = p.tide, underline = true },
+    ["@character"] = { fg = p.white },
+    ["@character.special"] = { fg = p.glow },
+    ["@boolean"] = { fg = p.coral },
+    ["@number"] = { fg = p.coral },
+    ["@number.float"] = { fg = p.coral },
+
+    ["@type"] = { fg = p.seaglass },
+    ["@type.builtin"] = { fg = p.verdigris },
+    ["@type.definition"] = { fg = p.white },
+    ["@attribute"] = { fg = p.anemone },
+    ["@attribute.builtin"] = { fg = p.anemone },
+
+    ["@function"] = { fg = p.emerald },
+    ["@function.builtin"] = { fg = p.emerald },
+    ["@function.call"] = { fg = p.emerald },
+    ["@function.macro"] = { fg = p.anemone },
+    ["@function.method"] = { fg = p.emerald },
+    ["@function.method.call"] = { fg = p.emerald },
+    ["@constructor"] = { fg = p.seaglass },
+    ["@constructor.lua"] = { fg = p.silt },
+
+    ["@operator"] = { fg = p.silt },
+    ["@keyword"] = { fg = p.verdigris },
+    ["@keyword.directive"] = { fg = p.anemone },
+    ["@keyword.directive.define"] = { fg = p.anemone },
+    ["@punctuation.delimiter"] = { fg = p.silt },
+    ["@punctuation.bracket"] = { fg = p.silt },
+    ["@punctuation.special"] = { fg = p.silt },
+
+    ["@comment"] = { fg = p.silt, italic = true },
+    ["@comment.documentation"] = { fg = p.silt, italic = true },
+    ["@comment.error"] = { fg = p.abyss, bg = p.urchin },
+    ["@comment.warning"] = { fg = p.abyss, bg = p.coral },
+    ["@comment.todo"] = { fg = p.abyss, bg = p.coral },
+    ["@comment.note"] = { fg = p.abyss, bg = p.glow },
+
+    ["@markup.heading"] = { fg = p.emerald, bold = true },
+    ["@markup.strong"] = { bold = true },
+    ["@markup.italic"] = { italic = true },
+    ["@markup.strikethrough"] = { strikethrough = true },
+    ["@markup.underline"] = { underline = true },
+    ["@markup.quote"] = { fg = p.silt, italic = true },
+    ["@markup.math"] = { fg = p.coral },
+    ["@markup.link"] = { fg = p.tide },
+    ["@markup.link.label"] = { fg = p.seaglass },
+    ["@markup.link.url"] = { fg = p.tide, underline = true },
+    ["@markup.raw"] = { fg = p.white },
+    ["@markup.raw.block"] = { fg = p.foam },
+    ["@markup.list"] = { fg = p.verdigris },
+    ["@markup.list.checked"] = { fg = p.emerald },
+    ["@markup.list.unchecked"] = { fg = p.silt },
+
+    ["@diff.plus"] = { fg = p.emerald },
+    ["@diff.minus"] = { fg = p.urchin },
+    ["@diff.delta"] = { fg = p.glow },
+
+    ["@tag"] = { fg = p.seaglass },
+    ["@tag.builtin"] = { fg = p.verdigris },
+    ["@tag.attribute"] = { fg = p.tide },
+    ["@tag.delimiter"] = { fg = p.silt },
+  }
+end
+
+local function lsp(p)
+  return {
+    ["@lsp.type.namespace"] = { link = "@module" },
+    ["@lsp.type.type"] = { link = "@type" },
+    ["@lsp.type.class"] = { link = "@type" },
+    ["@lsp.type.struct"] = { link = "@type" },
+    ["@lsp.type.interface"] = { link = "@type" },
+    ["@lsp.type.enum"] = { link = "@type" },
+    ["@lsp.type.typeParameter"] = { link = "@type" },
+    ["@lsp.type.parameter"] = { link = "@variable.parameter" },
+    ["@lsp.type.variable"] = { link = "@variable" },
+    ["@lsp.type.property"] = { link = "@property" },
+    ["@lsp.type.enumMember"] = { link = "@constant" },
+    ["@lsp.type.function"] = { link = "@function" },
+    ["@lsp.type.method"] = { link = "@function.method" },
+    ["@lsp.type.macro"] = { link = "@function.macro" },
+    ["@lsp.type.decorator"] = { link = "@attribute" },
+    ["@lsp.type.keyword"] = { link = "@keyword" },
+    ["@lsp.type.comment"] = { link = "@comment" },
+    ["@lsp.type.string"] = { link = "@string" },
+    ["@lsp.type.number"] = { link = "@number" },
+    ["@lsp.type.operator"] = { link = "@operator" },
+    ["@lsp.typemod.type.definition"] = { link = "@type.definition" },
+    ["@lsp.typemod.type.defaultLibrary"] = { link = "@type.builtin" },
+    ["@lsp.typemod.function.defaultLibrary"] = { link = "@function.builtin" },
+    ["@lsp.typemod.variable.readonly"] = { link = "@constant" },
+    ["@lsp.typemod.property.definition"] = { link = "@variable.member.definition" },
+
+    LspReferenceText = { bg = blend(p.glow, p.abyss, 0.20) },
+    LspReferenceRead = { link = "LspReferenceText" },
+    LspReferenceWrite = { link = "LspReferenceText" },
+    LspInlayHint = { fg = p.silt, italic = true },
+    LspSignatureActiveParameter = { fg = p.glow, bold = true },
+  }
+end
+
+local function diagnostics(p)
+  local levels = { Error = p.urchin, Warn = p.coral, Info = p.glow, Hint = p.emerald, Ok = p.emerald }
+  local groups = {}
+  for level, color in pairs(levels) do
+    groups["Diagnostic" .. level] = { fg = color }
+    groups["DiagnosticVirtualText" .. level] = { fg = color, italic = true }
+    groups["DiagnosticUnderline" .. level] = { sp = color, undercurl = true }
+    groups["DiagnosticSign" .. level] = { fg = color }
+    groups["DiagnosticFloating" .. level] = { fg = color }
+  end
+  groups.DiagnosticUnnecessary = { fg = p.silt }
+  groups.DiagnosticDeprecated = { strikethrough = true }
+  return groups
+end
+
 function M.get(p)
   local groups = {}
-  for _, section in ipairs({ editor, syntax }) do
+  for _, section in ipairs({ editor, syntax, treesitter, lsp, diagnostics }) do
     for name, spec in pairs(section(p)) do
       groups[name] = spec
     end
