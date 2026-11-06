@@ -65,7 +65,10 @@ To follow releases instead of `main`, add `version = "*"` to the lazy.nvim spec.
 make generate         # regenerate palette.lua
 make check-generated  # fail if palette.lua is out of date
 make lint test
+make update-palette VERSION=vX.Y.Z  # move to a new palette release
 ```
+
+The `Palette sync` workflow checks daily (or on demand from the Actions tab) for a new palette release and opens a PR that bumps the version and regenerates `palette.lua`: `feat:` when the colours changed, `chore:` when they did not.
 
 ## License
 
