@@ -51,6 +51,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 ```
 
+## Releases
+
+Releases are automated with [release-please](https://github.com/googleapis/release-please). Every push to `main` updates a release PR with the next version, worked out from the conventional commit messages. Merging that PR tags `vX.Y.Z` and publishes a GitHub Release with the notes.
+
+To follow releases instead of `main`, add `version = "*"` to the lazy.nvim spec.
+
 ## Development
 
 `lua/emerald-ocean/palette.lua` is generated from [emerald-ocean/palette](https://github.com/emerald-ocean/palette); edit the palette there, not here. The palette version is pinned in the `Makefile`.
