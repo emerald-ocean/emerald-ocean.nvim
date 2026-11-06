@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  GO_VERSION: 1.27.3
+  NVIM_VERSION: v0.12.6
+  NVIM_SHA256: 474430d53e6264f6d6dd18db42d6dc9df3a1b56ca9e88a325bbf860e1a811d87
+  STYLUA_VERSION: v2.6.0
+  STYLUA_SHA256: a485f72bbfa22e4642e77a84b5edc2611a5cab7477b34e2e709dd8f78e919895
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version: ${{ env.GO_VERSION }}
+          cache: false
+      - name: Install Neovim
+        working-directory: ${{ runner.temp }}
+        run: |
+          curl -fsSLo nvim.tar.gz "https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/nvim-linux-x86_64.tar.gz"
+          echo "${NVIM_SHA256}  nvim.tar.gz" | sha256sum --check --strict
+          tar xzf nvim.tar.gz
+          echo "${RUNNER_TEMP}/nvim-linux-x86_64/bin" >> "$GITHUB_PATH"
+      - name: Install StyLua
+        working-directory: ${{ runner.temp }}
+        run: |
+          curl -fsSLo stylua.zip "https://github.com/JohnnyMorganz/StyLua/releases/download/${STYLUA_VERSION}/stylua-linux-x86_64.zip"
+          echo "${STYLUA_SHA256}  stylua.zip" | sha256sum --check --strict
+          unzip -q stylua.zip -d stylua
+          echo "${RUNNER_TEMP}/stylua" >> "$GITHUB_PATH"
+      - run: make check-generated lint test

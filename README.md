@@ -51,6 +51,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 ```
 
+## Development
+
+`lua/emerald-ocean/palette.lua` is generated from [emerald-ocean/palette](https://github.com/emerald-ocean/palette); edit the palette there, not here. The palette version is pinned in the `Makefile`.
+
+```sh
+make generate         # regenerate palette.lua
+make check-generated  # fail if palette.lua is out of date
+make lint test
+```
+
 ## License
 
 MIT
