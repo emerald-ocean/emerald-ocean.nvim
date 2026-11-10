@@ -1,6 +1,6 @@
 # emerald-ocean.nvim
 
-A dark Neovim colorscheme coloured like the ocean when green beats blue: a green-black base taken from a breaking emerald wave, emerald functions, kelp-green keywords, sea-glass types, and a white-blue bioluminescent glow that only appears where you are working (cursor, current search match, yank flash, matching bracket, references).
+A dark Neovim colorscheme coloured like the ocean when green beats blue: a green-black base taken from a breaking emerald wave, emerald keywords and functions, lagoon types, sea-blue packages and fields, foam-white values, and bioluminescence that only appears where you are working: a blue glow for the cursor and pink jelly for the matching bracket and references.
 
 The colours come from [emerald-ocean/palette](https://github.com/emerald-ocean/palette).
 
@@ -41,7 +41,7 @@ With [lazy.nvim](https://github.com/folke/lazy.nvim):
 
 ## Yank flash
 
-Neovim's yank highlight uses `IncSearch`, which glows:
+Neovim's yank highlight uses `IncSearch`, an emerald flash like the current search match:
 
 ```lua
 vim.api.nvim_create_autocmd("TextYankPost", {

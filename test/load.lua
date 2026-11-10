@@ -6,7 +6,7 @@ end
 
 local p = require("emerald-ocean.palette")
 local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
-if vim.g.colors_name ~= "emerald-ocean" or string.format("#%06x", normal.bg) ~= p.abyss then
+if vim.g.colors_name ~= "emerald-ocean" or string.format("#%06x", normal.bg) ~= p.abyss1 then
   io.stderr:write("emerald-ocean did not apply\n")
   os.exit(1)
 end

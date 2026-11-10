@@ -1,4 +1,4 @@
-PALETTE_VERSION := v0.1.1
+PALETTE_VERSION := v0.2.0
 EMERALD_GEN := go run github.com/emerald-ocean/palette/cmd/emerald-gen@$(PALETTE_VERSION)
 
 .PHONY: generate check-generated lint test palette-version update-palette
