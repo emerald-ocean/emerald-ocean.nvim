@@ -1,6 +1,6 @@
 # emerald-ocean.nvim
 
-A dark Neovim colorscheme coloured like the ocean when green beats blue: a green-black base taken from a breaking emerald wave, emerald keywords and functions, lagoon types, sea-blue packages and fields, foam-white values, and bioluminescence that only appears where you are working: a blue glow for the cursor and pink jelly for the matching bracket and references.
+A dark Neovim colorscheme coloured like the ocean when green beats blue: a green-black base taken from a breaking emerald wave, emerald keywords and functions, lagoon types, sea-blue packages and fields, foam-white values, glow-blue strings with emerald quotes and escapes, and bioluminescence where you are working: a blue glow for the cursor and pink jelly for the matching bracket and references.
 
 The colours come from [emerald-ocean/palette](https://github.com/emerald-ocean/palette).
 

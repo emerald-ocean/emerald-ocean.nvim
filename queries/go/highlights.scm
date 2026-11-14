@@ -11,3 +11,11 @@
 (const_declaration
   "const" @keyword.declaration
   (#set! priority 105))
+
+(interpreted_string_literal
+  "\"" @string.quote
+  (#set! priority 105))
+
+(raw_string_literal
+  "`" @string.quote
+  (#set! priority 105))
