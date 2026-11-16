@@ -125,6 +125,9 @@ local function treesitter(p)
     ["@variable.member"] = { fg = p.sea5 },
     ["@variable.member.definition"] = { fg = p.foam5 },
     ["@property"] = { fg = p.sea5 },
+    ["@property.json"] = { fg = p.emerald3 },
+    ["@property.jsonc"] = { fg = p.emerald3 },
+    ["@property.yaml"] = { fg = p.emerald3 },
 
     ["@constant"] = { fg = p.foam5 },
     ["@constant.builtin"] = { fg = p.foam5 },
