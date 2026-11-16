@@ -19,3 +19,8 @@
 (raw_string_literal
   "`" @string.quote
   (#set! priority 105))
+
+(import_spec
+  path: (interpreted_string_literal
+    (interpreted_string_literal_content) @module)
+  (#set! priority 105))
