@@ -138,7 +138,7 @@ local function treesitter(p)
     ["@string.documentation"] = { fg = p.foam2, italic = true },
     ["@string.regexp"] = { fg = p.biolume4 },
     ["@string.escape"] = { fg = p.emerald4 },
-    ["@string.quote"] = { fg = p.emerald4 },
+    ["@string.quote"] = { fg = p.foam5 },
     ["@string.special"] = { fg = p.emerald4 },
     ["@string.special.symbol"] = { fg = p.foam5 },
     ["@string.special.url"] = { fg = p.sea5, underline = true },
