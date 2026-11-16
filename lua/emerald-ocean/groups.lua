@@ -154,6 +154,7 @@ local function treesitter(p)
 
     ["@type"] = { fg = p.lagoon4 },
     ["@type.builtin"] = { fg = p.emerald3 },
+    ["@type.builtin.javascript"] = { fg = p.lagoon4 },
     ["@type.definition"] = { fg = p.lagoon4 },
     ["@attribute"] = { fg = p.anemone4 },
     ["@attribute.builtin"] = { fg = p.anemone4 },
