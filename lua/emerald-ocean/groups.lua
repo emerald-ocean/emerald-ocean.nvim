@@ -133,8 +133,8 @@ local function treesitter(p)
     ["@constant.builtin"] = { fg = p.foam5 },
     ["@constant.macro"] = { fg = p.anemone4 },
 
-    ["@module"] = { fg = p.sea4, italic = true },
-    ["@module.builtin"] = { fg = p.sea4, italic = true },
+    ["@module"] = { fg = p.sea4 },
+    ["@module.builtin"] = { fg = p.sea4 },
     ["@label"] = { fg = p.emerald4 },
 
     ["@string"] = { fg = p.biolume4 },
